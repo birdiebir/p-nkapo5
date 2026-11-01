@@ -11,6 +11,7 @@
     --bg: #f6f7f6; --surface: #ffffff; --surface-2: #eef2f1;
     --text: #17201e; --muted: #5b6764; --line: #dde3e1;
     --accent: #0f766e; --accent-ink: #ffffff; --accent-soft: #dff1ee;
+    --warn: #9a4a07; --warn-soft: #fdf0dc;
     --radius: 14px; --shadow: 0 1px 2px rgb(15 60 55 / .06), 0 8px 24px rgb(15 60 55 / .06);
   }
   @media (prefers-color-scheme: dark) {
@@ -18,6 +19,7 @@
       --bg: #0f1413; --surface: #161d1b; --surface-2: #1d2624;
       --text: #e7eeec; --muted: #9aa8a4; --line: #27322f;
       --accent: #3fb5a8; --accent-ink: #0b1312; --accent-soft: #173330;
+      --warn: #f2b25c; --warn-soft: #3a2a12;
       --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .25);
     }
   }
@@ -32,6 +34,8 @@
   header { padding: 36px 0 8px; }
   h1 { font-size: clamp(30px, 8vw, 44px); line-height: 1.15; font-weight: 800; letter-spacing: -.01em; margin: 0; }
   .intro { color: var(--muted); margin: 10px 0 0; max-width: 60ch; }
+  .offline { position: sticky; top: 0; z-index: 20; margin: 0 -16px; padding: 8px 16px; font-size: 14px; text-align: center;
+    background: var(--warn-soft); color: var(--warn); font-weight: 600; }
   .updated { font-size: 14px; color: var(--muted); margin-top: 10px; }
   h2 { font-size: 20px; margin: 32px 0 12px; }
   .items { display: grid; gap: 12px; }
@@ -63,7 +67,7 @@
   <div style="padding-top:40px"><div class="skeleton" style="width:50%;height:38px"></div><div class="skeleton" style="width:70%"></div><div class="skeleton" style="height:90px"></div></div>
 </div>
 <script>
-const PAYLOAD = {"v": 1, "iv": "v3Acp+t/4Wci4u5j", "ct": "BB0LEoRgxml+RCWeifxyjEyuychxUNXYueahM97tlNe6y5VggZHPCGsQVb9G28aoBEPqYaK2xIIsVgXDPE3ZNirqbam/sqGbBm0zdr0CaFS1eoJ6g2sEVaXan6jnwa56SmZdpxQVPSTkfgYB1RatDcduuNwYUZuu1yDrwS5sNx9QKxKMEZSr1/ANBQotRlQQKR7Gok7yWwCFv8dVl55lZ9Oqff6DAXbe6A/VJ4wkPO98WWNpMPY4ooj8S0FoV3m9USdT5Lyj4B5Nr1HdPdpKwk0Tc3v3Oc8pJwFsgaji5/xXA7o2XY5NOfLuiPRNXR68r0HU3cBFFveBP8vF5x6ELwIubPAAB6F9gp+HXteYd50A23YN28jAU6QYQ82O9PjQEt5pwbJWXU2+rzIlrpE+GlCLp68IB1MbbMA93HbcXjzK6hziLdK3ZY4f3enDGwaRac86iJLzrRv0aGfN+/VJZhe5osbwEDwF9dPMxRsQacXMNtBJs+tQ1xtt/0KWroZ+ugHs+XPuNxKXMT9WbvfUGJdFf74iBjdwyTUKFO+iHxoXiWblyryTrWMdQceZp1xAVKlYPKz0/p3u0BonBYmHryxwKXVJRPmeHjRcoxdFnch7sl2KCnpB9gJFaPI84sXaFONDY8LdIA6HuqNFonhw/wrVb47iGSyuMRmvPFVxqioJAl426K4bm78WIU46wvScxbNXf1YiwMyudVhc0lcKgYpna3TeDmwKK+G3ezwb63UuH+HD4gpaR3bMaS+7bUvT5FEIFCAoD4BKppPlZffsURZR0obeEnLVtoTAgBdh6+j/2P7x3t/msEiwRPYVjBgre+vtxSGPEw=="};
+const PAYLOAD = {"v": 1, "iv": "9K5+QVZhnj8uYcMV", "ct": "dL1Y9Gt0Kmx3NbzbxkwKUbvaFGAmuQmrnZdk6ObATOGcU83y5mq5XfRkCSqvIGw7iD67zOGXcb/5LpREZ1qWoT9Z+fOadf8Y7LBMeq4EPjN/AUHamm0jwoLGaS2JqONzgdibsZ93kURJO1L/ql3TNO2IEuaGWxVHRqZz964IHkHm1DtlekaamTbaVoU8Lgzo6gvQuH0W6JKQ/ZIyocbSP3pU+xocYcSQQEKmktKC4IUL96hyBTLvWnyu17pAiLjj69H592V74F5xCiSjjyNKRsssnWlMOzqaKiY+EsrMFHNitht+55MnOFT6pKnbs5rnuMnXAqy6+I7FD4UFBggEp15o/s2DaYolRx/al8mWCKoLp5Y0eGNGeFZjd/kYIhDOv9UvK4xz+sA98npcyOklNqFhJSeKvEByP0hmSkAfSV/wHRYY8gz3Zyr/w62ZQ/YcubQVkQRtUS677uY+lkXcuTglbbwhO5IoItRQTbfxU4j8iCm65phs+SmDjGdO+o27bTzgMmd3CLOEQMSkhbdqzgmjID884iBRrtiVCkoNLuyTKDw6mbahC3QPML4ExT+wbiAR+9ub6vaiAgwfc+toy7erUnL4+M9ws5ieyoojAtr9p9kRoMrXBVtiIMhH5F3QDgj0h11qBbtgYxaai2wfyly/OKx49UaYtyVsSEhuDY9dtAKyvrb54v4l2wImLIBlVSsrDLheR/YKmL3JMeANwPqZEN+qLr96amca3qNDDAcPGw//8CWelVIL3t0rsuRMxiErdf1Y32zQhxaOfxOsJvqev7cGmLvfKNARyk3BIJpL/TXGGW1vdVQ2rY74raajr6ZtLdU58g=="};
 const STORE = "sharekey:" + location.pathname.split("/").slice(0, 2).join("/");
 
 const el = (tag, attrs = {}, ...kids) => {
@@ -77,6 +81,18 @@ const el = (tag, attrs = {}, ...kids) => {
 };
 const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 const b64u = s => b64(s.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((s.length + 3) % 4));
+
+// 離線可讀：註冊 service worker（同網域、只快取頁面）；沒網路時顯示提示
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register(new URL("./sw.js", location.href)).catch(() => {});
+}
+function offlineBanner() {
+  const old = document.querySelector(".offline");
+  if (navigator.onLine) { old?.remove(); return; }
+  if (!old) document.getElementById("app")?.prepend(el("div", { class: "offline", role: "status" }, "沒有網路，顯示的是上次打開的版本"));
+}
+addEventListener("online", offlineBanner);
+addEventListener("offline", offlineBanner);
 const gate = (t, m) => document.getElementById("app").replaceChildren(el("div", { class: "gate" }, el("div", {}, el("b", {}, t), m)));
 
 function getKey() {
@@ -110,6 +126,7 @@ function render(d, keyText) {
     (d.changelog || []).length ? el("ul", { class: "log" }, d.changelog.map(c => el("li", {}, `${c.date} ${c.text}`))) : null,
     el("footer", {}, "把這一頁加進書籤，之後新的內容都會出現在這裡。")
   );
+  offlineBanner();
 }
 
 (async () => {
