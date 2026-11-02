@@ -43,6 +43,13 @@
   .offline { position: sticky; top: 0; z-index: 20; margin: 0 -16px; padding: 8px 16px; font-size: 14px; text-align: center;
     background: var(--warn-soft); color: var(--warn); font-weight: 600; }
   .updated { font-size: 14px; color: var(--muted); margin-top: 10px; }
+  /* 下載到手機（PWA 安裝） */
+  .install { position: relative; margin-top: 14px; padding: 14px 48px 14px 16px; border-radius: 18px; background: var(--accent-soft); color: var(--text); }
+  .install b { display: block; font-size: 16px; color: var(--accent); }
+  .install p { margin: 4px 0 0; font-size: 14px; line-height: 1.55; }
+  .install .go { margin-top: 10px; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0;
+    background: var(--accent); color: var(--accent-ink); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+  .install .x { position: absolute; top: 4px; right: 4px; width: 44px; height: 44px; border: 0; background: none; color: var(--muted); font-size: 22px; cursor: pointer; }
   h2 { font-size: 20px; margin: 32px 0 12px; }
   .items { display: grid; gap: 12px; }
   a.item { display: block; text-decoration: none; color: var(--text); background: var(--surface);
@@ -120,7 +127,7 @@
   <div style="padding-top:40px"><div class="skeleton" style="width:50%;height:38px"></div><div class="skeleton" style="width:70%"></div><div class="skeleton" style="height:90px"></div></div>
 </div>
 <script>
-const PAYLOAD = {"v": 1, "iv": "rfa39ppVfy1KclAX", "ct": "2xjV/w6pPjS9kIGvov3aGiqBbUU0EhcERLj+i1BEAY8CqDTz0v2xYY6oBOmHR8ZLWuh/l5SepoS8bqLSrDmIUZIwtpbQ2g9cLzkaeJ5+O/1YLEvtjewQocEVrD7+nNLMMvGZ77o/G2FMp2NhdnuNLNA2s2wJp1bupWPduBnr8++8JN0ol2SxFyGJu9pf5Fqo1+rqbK4SsueCnEm2vADc7Eph2LLBXkqFN1B9Kzdc1JLi/IOu1pOSPi5nUH0iKLVPLUMcgx0TFn9p5bJRjzrr9uGfCEGRpfvldcJJ5IKvX3qJSYrGpA7xB/928kPG87+80IIa10N9grL6hiMkgJ25fMTgoEyhckuTxxHTrthoca/dvVGjvd81suoQzNn3gY1FIpbzyZJdwYnrV9Y1LBvrj8OQb/3AEsue5QpTI3FXEvg+NYyPOsCeyXKCy0fG21/XQUdEb24EjjZuVm8Qv+LsXSkHSKKYQwNFi4O5LjiiFqICvXLSODFnTT3xbwbxacI7qwFfbKjiIEIu7mpkfxjM8QrlR1YuwpOAlRJToVlH/FigPqlRh2tWHy8U8Gn0xsU3DlBtWjabhY1AXzfeX41rGuvQ0V3ecuwqnakQhNxMdptBl2L0KRrQ2Jg4IkPjhBJJBeqIn8KUkybwV9VUL9RgmsAfMBaSMpC5IX1Af7/1mXeUmhwpMEM3h4tz88aQhFPVwzvSNKhaYWKs14iTe956YwDz6l0r5MafQNFYZqZFkk0N9hK44xTvRwMO78bX0k9qOVOaksylEZNokh1jRMSxt/6o4EwhUFxpB5uh2v6gnmt1IHEOQ9MEFoghAQnqxx/pq3P9oxW5JrPOdrXWsbJe/OdM1F8KWfpOGCgECp/tduvddk8LuB/qHmx3+f8ECxzvWcbaRDkApaa2+Yxq5QBdxQVmwAfG3bEBbdZSGCRl+rO1vciHneCvAuleCvDHL/2jR7aJC1snYphmhxM+l+WJ2+VQKGVBX66ngwFgJeobtjJhSP7krTOc+oxrb+in3Xttp+b2L9Wyt5nZVOLykswB37AwdLo="};
+const PAYLOAD = {"v": 1, "iv": "72JsHCLsCauhBrPY", "ct": "NrjngymPJJ6AucNmX3wvIT8MpaNzXZuEYW/Tl/aTVSiCY4QkuzAB+gkYD16gqTMEUX26ALsjKuCe1ML9qMPh2BTrND+4eUFBd8JRumPQrZdTX9ju3r1lzHD8SUVoUAxQJ/jRPoFLyAwJhHsZlqoEIQjSusspThzDAQUO1QWy1eKM5IblMZ5M7d++61H4wOc0fcjaWWj/yFcR/sTs0V6c6yH303qe2qnOWkfBhw3f6RH7pw+vLYcfnGiyQq+6j3krx/33VvzLLNCL0Y4xnP2H7fmNCFhqBnvBzoJRr2m9cKn8I+naqVbvBiMuyYUmwW28OjVOVhju0goqb5QOjIPY4Jtwcn+ps+BsaFrn1SKyYPJmmO7XD3iIMsQCcFv4xOsaqXMo+R9onqR6nS2vLM8NAT8aMWZc+FE/l93fHcXarn01TUqHOaok0aM8LOMoqz5Jxtez5oEJSYtbgYqCgw8wyQpdf1eksK2iQcI73fC5GT8z6abTjU+ixK+OeIdxWNwvoKfpJWEbozWbJDqFQLG0n7DSGYXlHbel/OE5wyZZoF4Pv0i16JqdogQ4Yr/QItEI3UnHbvzcBninC3J9fRpqNvZmDpgo/6yma4b2mIyOlT8IhCUej0Vb0sLWXpzMt9cey+NLQMgAfANhSIy1r5sDIPVP6nfNuy7jvlOlsXdvJiL4siep71gSlTP3DTNuPfhVx30pIvUT3s9oPhBUVnN9xP656GqoabgVC8qrv8fMwPu9DmaCisMolKqL9BtjC0eicGoxQWFBEHHwFHvA7z+URlxw4awXM7YlNxKqdds7OZ6D3nnU8GPy+mrSe1cK3tXGmtJhUGjcyIZqgttjM9rC9XJ/y5VRi34CmK7sPTpdx41TIsF45qzVuAJBq0DnP0MFyk5OrXusJAKlWqhYMDGvz3cLfxF9JQ8UglZCZgJSPIkC9/nkYdBfiA73WhQK4r4BpBeaquxQknHrmKZ14hDvxbqr9K1Ky1YvMVot8smCcVMoXmjBpGZdoW9WVS4ANNAiWSLLc/aaP+23Aat86ONVyWCy+eU="};
 const STORE = "sharekey:" + location.pathname.split("/").slice(0, 2).join("/");
 
 const el = (tag, attrs = {}, ...kids) => {
@@ -146,6 +153,39 @@ function offlineBanner() {
 }
 addEventListener("online", offlineBanner);
 addEventListener("offline", offlineBanner);
+
+// 下載到手機（PWA）：Android Chrome 跳安裝視窗；iPhone 給步驟；LINE 內建瀏覽器不能安裝，先換到外部瀏覽器（LINE 認 openExternalBrowser=1）
+let INSTALL_EVT = null;
+const IS_APP = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+addEventListener("beforeinstallprompt", e => { e.preventDefault(); INSTALL_EVT = e; document.querySelectorAll(".install").forEach(b => paintInstall(b)); });
+addEventListener("appinstalled", () => document.querySelectorAll(".install").forEach(b => b.remove()));
+function paintInstall(box) {
+  const ua = navigator.userAgent, key = box.dataset.key || "";
+  const inLine = /\bLine\//i.test(ua), ios = /iPhone|iPad|iPod/.test(ua);
+  let msg, act = null;
+  if (inLine) {
+    msg = "現在是在 LINE 裡面打開的，LINE 沒辦法下載。先換到瀏覽器打開，再按一次下載。";
+    act = el("a", { class: "go", href: location.origin + location.pathname + "?openExternalBrowser=1" + (key ? "#k=" + key : "") }, "用瀏覽器打開");
+  } else if (INSTALL_EVT) {
+    msg = "下載後手機桌面會多一個「分享」圖示，點了直接打開，沒網路也看得到。";
+    act = el("button", { class: "go", type: "button" }, "下載到手機");
+    act.addEventListener("click", async () => { const e = INSTALL_EVT; INSTALL_EVT = null; e.prompt(); const r = await e.userChoice; if (r.outcome === "accepted") box.remove(); else paintInstall(box); });
+  } else if (ios) {
+    msg = "用 Safari 打開這一頁，點下方的「分享」按鈕，選「加入主畫面」。";
+  } else {
+    msg = "點 Chrome 右上角「⋮」，選「加到主畫面」或「安裝應用程式」。";
+  }
+  const x = el("button", { class: "x", type: "button", "aria-label": "先不要" }, "×");
+  x.addEventListener("click", () => { try { localStorage.setItem("install:hide", "1"); } catch (e) {} box.remove(); });
+  box.replaceChildren(...[el("b", {}, "下載到手機"), el("p", {}, msg), act, x].filter(Boolean));
+}
+function installCard(key) {
+  if (IS_APP) return null;
+  try { if (localStorage.getItem("install:hide")) return null; } catch (e) {}
+  const box = el("div", { class: "install", "data-key": key || "" });
+  paintInstall(box);
+  return box;
+}
 const HERO_ART = `<svg viewBox="0 0 400 90" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
   <path class="heart" d="M330 40s-12-7.4-15.4-14.7c-2.4-5.4 1-11.6 7-11.6 3.4 0 5.8 1.9 8.4 5 2.6-3.1 5-5 8.4-5 6 0 9.4 6.2 7 11.6C342 32.6 330 40 330 40z" opacity=".85"/>
   <path class="heart" d="M362 22s-6-3.7-7.7-7.4c-1.2-2.7.5-5.8 3.5-5.8 1.7 0 2.9 1 4.2 2.5 1.3-1.5 2.5-2.5 4.2-2.5 3 0 4.7 3.1 3.5 5.8C368 18.3 362 22 362 22z" opacity=".55"/>
@@ -173,7 +213,8 @@ function render(d, keyText) {
     (() => { const h = el("header", {},
       el("h1", {}, d.title),
       d.intro ? el("p", { class: "intro" }, d.intro) : null,
-      el("div", { class: "updated" }, `最後更新 ${d.updated}，重新整理就會看到最新版`));
+      el("div", { class: "updated" }, `最後更新 ${d.updated}，重新整理就會看到最新版`),
+      installCard(keyText));
       const art = el("div", { class: "hero-art", "aria-hidden": "true" }); art.innerHTML = HERO_ART; h.prepend(art); return h; })(),
     el("h2", {}, "分享給你的"),
     items.length
@@ -184,7 +225,7 @@ function render(d, keyText) {
       : el("div", { class: "empty" }, "目前還沒有內容，之後有東西會放在這裡。"),
     (d.changelog || []).length ? el("h2", {}, "更新紀錄") : null,
     (d.changelog || []).length ? el("ul", { class: "log" }, d.changelog.map(c => el("li", {}, `${c.date} ${c.text}`))) : null,
-    el("footer", {}, el("span", { class: "foot-wave", "aria-hidden": "true" }), "用 Chrome 選單的「加到主畫面」，之後點圖示就能打開，沒網路也看得到。")
+    el("footer", {}, el("span", { class: "foot-wave", "aria-hidden": "true" }), "下載到手機後，點桌面的圖示就能打開，沒網路也看得到。")
   );
   offlineBanner();
 }
