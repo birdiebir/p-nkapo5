@@ -1,5 +1,5 @@
 // share-hub 離線快取：有網路時抓最新版，沒網路時用上次的版本。只快取同網域的頁面。
-const CACHE = "share-hub-2026-11-02T21:02";
+const CACHE = "share-hub-2026-11-02T21:04";
 const PAGES = ["./", "./manifest.webmanifest", "./icons/icon-192.png", "./phuquoc-2026/"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(PAGES)).then(() => self.skipWaiting()));
