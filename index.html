@@ -6,6 +6,12 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer">
 <title>分享</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f7f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1413" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
 <style>
   :root {
     --bg: #f6f7f6; --surface: #ffffff; --surface-2: #eef2f1;
@@ -67,7 +73,7 @@
   <div style="padding-top:40px"><div class="skeleton" style="width:50%;height:38px"></div><div class="skeleton" style="width:70%"></div><div class="skeleton" style="height:90px"></div></div>
 </div>
 <script>
-const PAYLOAD = {"v": 1, "iv": "LaX4oq4t4JXgQ2pD", "ct": "UmlNu3Wq+qjJ8wXHVYa4HItR/NCgwws/+xMNG6ZS8PQ3Pqf2NWfdtUCEyrIx0eh2kXnP/rtpkyc/35Xvg0wN0r6J9lB/VQZDDwO4ugwdCoUZBEVtT/zK9M+BPKENKZRuqMP6TqjZmfF+sc5QriFbKNT3Abxl79wiG5u9HH/JFe8fagikhS3l6c+W1XYkBl/WTAdnrPzhImHu3uLWWCo49auoZOUBl3xKbZWWrxCHmF4AxY41QoDAxoJqc19zEU25+BXERX52S9HptFo6ThOvAClrduMpaU0f4maJRSOwAUVGQag5I79Fu4hL8xkNmpIDkTaa8hsjjremldsMN3rRGCZrA73sBdijFOzJM2u8NFl545bCe3ALpOcx0ZJohx8fKWeTjyErOHx+1R0ghzasLDo7tdI1fn9jv1Mq7+tAbaTPxfPybnqpoKvfZ/L7bXyQd/cCfSfiwnKsUiJBKe+ofHu+8BURYqoEilAUT+D6/Tp/F1KJ5Y+FIp1y5ZBo6s9Onku4OVRpnacPUt8nNuqNlis3O922wRlEfFfIKsRWzhQKejFCI5G1EiNqLPqCKbGnMo/qGTMdIRY5rnuPKyyEF1s+o3jk6wAxnctBi4CNyqFqR9uSgcnxhBQy8CvJ0LFk7FN7dXzAeKBu6evcgqfZPeiOBN5XFp3kNo05tM5YWUsQIFEIjnYpXfqaq1mWnhCYt8kPEcMdjLG4nedIgY2IemYGydqLETF1LJX/ZslPNXkLXaF9JMfmhBlvZUN//N7tTv4istt69RffQqkH/Ue4bUdlBI4Us5vqDhvoUWCCpGKLb0yLfesSWtcgz5BsKtIZmEZENn/Ohl0pT2q+aLrnXQ1lI1u+GZarMuKRY0ptMT2WzZ0vguWcVuUPHlzyR7PloZRxygnqtBYBiPapPAkFqbuawILnXcurrMEWiHHbK7F6Y556G1EiejEH1gMZFD5xm6GaQ/IVc8IuPufUV9sRTpXlVlDXWCx6Gqf2FBwi+2fFP+WC0CbfKXdTvLcueNvc5ZwPQMGFT3PL1djM4h/2QgPTg2w="};
+const PAYLOAD = {"v": 1, "iv": "94+KdOelBo8ivMCu", "ct": "wccXnjjx6RBguk8e3G4J7fjgi+JVfN2JQ7pF7g3wy/4wjo9Ca2bGE/yhBjdypebj/iEVaNponSwJBCmsir4y3mdZkKpbwElXr+evYc9KyIQ46xxbYmQ+DKcLAmTIYsQXBEhjCeMFXzodEbnTXlh92a1/01Mhxg0J0bZKxuW0QDVfaOzdxsS6FBZIvUE0zmrhVQLKuRkNbkcHemQGCI/2mAAxkerlJqX8VzyAPjki1TYXZLuHKzCLvQu6/hpIoJ5MniRyD6sz4uBR2MqF9lNM4Xma3tXEAiK+e/Pr5gvOEMlkk7NDT7dLT5if5atXuVvt2U1oAnTOiRzNZ05IcIN00vwC27hzgNIvyZZb08i7PbcNrGJjcjJneXpYaI6T7DvLeYDdy8PBTI7gDh5G4rpfJhRMnJSPKdmvKIm8zlZCeaXHb4IXiY3FxpmKaBAI7txZcbhwfL4snNg3pfHd3ECLOgIDvOS3SbBgcyyVt7lrawhxWPUJJWbFcKi1gTMOBgZ8FHd2gVF0BzMWe0Aig+tLrQu+3Q1uyBQjJzyGt9sKog69bEyMb/SUiwlScPtPW8kbL5VifQYVYmglQaLzTApkfV1xZ7Ff+fXHH/0rDGpeJb75bFhE7iO+MOLf/OxaigdXSiktTHJW79NIoOFW8m57ubAX8KDaM2EoakQF+iDvtp7GUENhg4N9UwiXr3RXtQZ4j8OwtHGX1bB+588aD9NKq0hfr4Ydzri4Xu9XKlEV8fkPaPSCwJgentme9DR8bMu6sLQDTxnEe1taq2jXYbvzXPCg0tFn9XRuq+CmYPN+zFlrI6NRCXaSx65gfdpwHm+m9El+AnC79gVGQiyIQByrYf+uFiNMvgWP8PmOZuf3mxHXSWboDn70OVbBFN7CJmOwSAqVQCn0RfrkA8nlVy2xonTZyb88P+ZM8FlfH9JhkugOiF0P2lqdj1FC7wHreykPREtdUOYiq2n0PF+Ha8LSC/iF04s6NRVqnn2RsZGNkqByetX1qiLVFP7MmbteTUnpi+WY8cnIsU1g3yMO3H/Lj0CAOZU="};
 const STORE = "sharekey:" + location.pathname.split("/").slice(0, 2).join("/");
 
 const el = (tag, attrs = {}, ...kids) => {
